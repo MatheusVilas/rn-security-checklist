@@ -5,16 +5,11 @@ import Box from '../atoms/box'
 import Paragraph from '../atoms/paragraph'
 
 type CompleteItemProp = {
-  onPress: () => void
   isOdd?: boolean
 }
 
-const CompleteItem: React.FC<CompleteItemProp> = ({
-  children,
-  onPress,
-  isOdd,
-}) => (
-  <TouchableWithoutFeedback onPress={onPress}>
+const CompleteItem: React.FC<CompleteItemProp> = ({ children, isOdd }) => (
+  <TouchableWithoutFeedback>
     <Box
       paddingHorizontal={Spacing.SPACING_XXSMALL}
       paddingVertical={Spacing.SPACING_SMALL}

@@ -1,5 +1,6 @@
+import moment from 'moment'
 import React from 'react'
-import { Colors } from 'react-native/Libraries/NewAppScreen'
+import { CheckList } from '../../../main/store/days-list-reducer'
 import useActiveTheme from '../../hooks/use-active-theme'
 import { Spacing } from '../../styles'
 
@@ -9,10 +10,17 @@ import Button from '../molecules/button'
 
 type TodayCardProps = {
   goToChecklist: () => void
+  list: CheckList[]
 }
 
-const TodayCard: React.FC<TodayCardProps> = ({ goToChecklist }) => {
+const TodayCard: React.FC<TodayCardProps> = ({ goToChecklist, list }) => {
   const theme = useActiveTheme()
+  const today = moment()
+  const hasEntryToday = list.find(item =>
+    moment(item.savedAt).isSame(today, 'day'),
+  )
+
+  console.log('hasEntryToday', hasEntryToday)
 
   return (
     <Box
@@ -32,11 +40,17 @@ const TodayCard: React.FC<TodayCardProps> = ({ goToChecklist }) => {
         family="BOLD"
         size="EXTRA_LARGE"
       >
-        24 DE ABRIL
+        {today.format('DD/MM/YYYY')}
       </Paragraph>
-      <Button bgColor="content" onPress={goToChecklist}>
-        Preencher checklist
-      </Button>
+      {hasEntryToday ? (
+        <Button disabled bgColor="content" onPress={goToChecklist}>
+          ALREADY ADDED
+        </Button>
+      ) : (
+        <Button bgColor="content" onPress={goToChecklist}>
+          ADD CHECKLIST
+        </Button>
+      )}
     </Box>
   )
 }

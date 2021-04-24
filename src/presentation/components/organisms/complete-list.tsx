@@ -1,28 +1,40 @@
+import moment from 'moment'
 import React from 'react'
 import { ScrollView } from 'react-native'
+import { CheckList } from '../../../main/store/days-list-reducer'
 import { Spacing } from '../../styles'
+import isOdd from '../../util/is-odd'
 import Box from '../atoms/box'
 
 import Paragraph from '../atoms/paragraph'
 import CompleteItem from '../molecules/complete-item'
 
-const CompleteList: React.FC = () => (
+type CompleteListProps = {
+  list: CheckList[]
+}
+
+const CompleteList: React.FC<CompleteListProps> = ({ list }) => (
   <Box flex={1}>
-    <Paragraph
-      color="contentOnColor"
-      style={{
-        marginBottom: Spacing.SPACING_LARGE,
-        textTransform: 'uppercase',
-      }}
-    >
-      Completos
-    </Paragraph>
-    <ScrollView bounces>
-      <CompleteItem isOdd onPress={() => {}}>
-        22 de abril
-      </CompleteItem>
-      <CompleteItem onPress={() => {}}>22 de abril</CompleteItem>
-    </ScrollView>
+    {list.length > 0 && (
+      <Box>
+        <Paragraph
+          color="contentOnColor"
+          style={{
+            marginBottom: Spacing.SPACING_LARGE,
+            textTransform: 'uppercase',
+          }}
+        >
+          Completed
+        </Paragraph>
+        <ScrollView bounces={false}>
+          {list.map((item, index) => (
+            <CompleteItem isOdd={isOdd(index)}>
+              {moment(item.day).format('DD/MM/YYYY')}
+            </CompleteItem>
+          ))}
+        </ScrollView>
+      </Box>
+    )}
   </Box>
 )
 

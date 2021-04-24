@@ -1,4 +1,5 @@
 import React from 'react'
+import { CheckList } from '../../../main/store/days-list-reducer'
 import useActiveTheme from '../../hooks/use-active-theme'
 import { Spacing } from '../../styles'
 import Box from '../atoms/box'
@@ -12,7 +13,7 @@ const HeaderDayList: React.FC = () => {
   return (
     <HeaderWrapper>
       <Box flex={1} flexDirection="row">
-        <HeaderText>CONTROLE DE EPI</HeaderText>
+        <HeaderText>CONTROL EPI</HeaderText>
         <Box
           paddingRight={Spacing.SPACING_MEDIUM}
           flex={1}
