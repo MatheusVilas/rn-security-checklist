@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Dayslist from '../../../../presentation/pages/days-list.tsx/days-list'
+import Dayslist from '../../../../presentation/pages/days-list/days-list'
 import { DaysListProps } from '../../../routes/@types/day-list-screen'
 
 const makeDaysList: React.FC<DaysListProps> = ({ navigation }) => {

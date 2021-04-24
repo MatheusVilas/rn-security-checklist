@@ -1,6 +1,7 @@
 import moment from 'moment'
 
 export type CheckList = {
+  id: string
   day: Date
   status: boolean
   savedAt: Date
@@ -21,16 +22,19 @@ interface ReducerType {
 const initialState: InitialStateType = {
   list: [
     {
+      id: '01',
       day: moment().subtract(1, 'days').toDate(),
       savedAt: moment().subtract(1, 'days').toDate(),
       status: true,
     },
     {
+      id: '02',
       day: moment().subtract(2, 'days').toDate(),
       savedAt: moment().subtract(2, 'days').toDate(),
       status: true,
     },
     {
+      id: '03',
       day: moment().subtract(3, 'days').toDate(),
       savedAt: moment().subtract(3, 'days').toDate(),
       status: true,

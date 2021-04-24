@@ -28,7 +28,7 @@ const CompleteList: React.FC<CompleteListProps> = ({ list }) => (
         </Paragraph>
         <ScrollView bounces={false}>
           {list.map((item, index) => (
-            <CompleteItem isOdd={isOdd(index)}>
+            <CompleteItem key={item.id} isOdd={isOdd(index)}>
               {moment(item.day).format('DD/MM/YYYY')}
             </CompleteItem>
           ))}
