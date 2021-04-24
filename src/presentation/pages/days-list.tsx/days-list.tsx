@@ -1,11 +1,24 @@
 import React from 'react'
+import Container from '../../components/atoms/container'
+import Divisor from '../../components/atoms/divisor'
 
-import Paragraph from '../../components/atoms/paragraph'
 import SafeArea from '../../components/atoms/safe-area'
+import CompleteList from '../../components/organisms/complete-list'
+import HeaderDayList from '../../components/organisms/header-day-list'
+import TodayCard from '../../components/organisms/today-card'
 
-const Dayslist: React.FC = () => (
+type DaysListType = {
+  newCheckList: () => void
+}
+
+const Dayslist: React.FC<DaysListType> = ({ newCheckList }) => (
   <SafeArea>
-    <Paragraph>Checklist</Paragraph>
+    <HeaderDayList />
+    <Container>
+      <TodayCard goToChecklist={newCheckList} />
+      <Divisor />
+      <CompleteList />
+    </Container>
   </SafeArea>
 )
 

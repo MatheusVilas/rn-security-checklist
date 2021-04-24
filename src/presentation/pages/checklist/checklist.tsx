@@ -1,11 +1,14 @@
 import React from 'react'
 
-import Paragraph from '../../components/atoms/paragraph'
 import SafeArea from '../../components/atoms/safe-area'
+import CheckListItems from '../../components/organisms/check-list-items'
+import HeaderChecklist from '../../components/organisms/header-checklist'
 
 const Checklist: React.FC = () => (
   <SafeArea>
-    <Paragraph>Checklist</Paragraph>
+    <HeaderChecklist />
+
+    <CheckListItems />
   </SafeArea>
 )
 
