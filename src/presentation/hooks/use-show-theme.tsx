@@ -1,5 +1,5 @@
 import { showMessage } from 'react-native-flash-message'
-import useActiveTheme from './useActiveTheme'
+import useActiveTheme from './use-active-theme'
 
 export default function useShowMessage() {
   const theme = useActiveTheme()
