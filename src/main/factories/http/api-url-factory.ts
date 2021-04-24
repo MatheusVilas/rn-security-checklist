@@ -1,3 +1,3 @@
-const makeApiUrl = (path: string): string => `${process.env.API_URL}${path}`
+const makeApiUrl = (): string => `${process.env.API_URL}`
 
 export default makeApiUrl
