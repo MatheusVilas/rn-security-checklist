@@ -18,7 +18,7 @@ export default function useShowMessage() {
     showMessage({
       description: message,
       message: title,
-      backgroundColor: theme.negative,
+      backgroundColor: theme.primary,
       color: theme.contentOnColor,
       type: 'warning',
     })

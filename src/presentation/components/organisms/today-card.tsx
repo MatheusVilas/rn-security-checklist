@@ -20,8 +20,6 @@ const TodayCard: React.FC<TodayCardProps> = ({ goToChecklist, list }) => {
     moment(item.savedAt).isSame(today, 'day'),
   )
 
-  console.log('hasEntryToday', hasEntryToday)
-
   return (
     <Box
       padding={Spacing.SPACING_SMALL}
@@ -33,7 +31,7 @@ const TodayCard: React.FC<TodayCardProps> = ({ goToChecklist, list }) => {
         style={{ marginBottom: Spacing.SPACING_XSMALL }}
         color="content"
       >
-        HOJE É
+        TODAY IS
       </Paragraph>
       <Paragraph
         style={{ marginBottom: Spacing.SPACING_LARGE }}

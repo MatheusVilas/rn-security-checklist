@@ -11,6 +11,7 @@ import {
 import RootNavigation from './src/main/routes/router'
 import store, { persistor } from './src/main/store'
 import ThemeWrapper from './src/presentation/util/theme-context'
+import FlashMessageWrapper from './src/presentation/util/flash-message-wrapper'
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -26,8 +27,10 @@ export default function App() {
     <ReduxProvider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <ThemeWrapper>
-          <StatusBar />
-          <RootNavigation />
+          <FlashMessageWrapper>
+            <StatusBar />
+            <RootNavigation />
+          </FlashMessageWrapper>
         </ThemeWrapper>
       </PersistGate>
     </ReduxProvider>

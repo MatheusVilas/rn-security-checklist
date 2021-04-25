@@ -1,4 +1,5 @@
 import React from 'react'
+import moment from 'moment'
 import { useNavigation } from '@react-navigation/core'
 import useActiveTheme from '../../hooks/use-active-theme'
 import Box from '../atoms/box'
@@ -24,7 +25,7 @@ const HeaderChecklist: React.FC = () => {
           family="BOLD"
           style={{ textTransform: 'uppercase', textAlign: 'center' }}
         >
-          24 de abril
+          {moment().format('DD/MM/YYYY')}
         </Paragraph>
       </Box>
     </HeaderWrapper>

@@ -16,5 +16,6 @@ module.exports = {
     '@typescript-eslint/no-shadow': 0,
     'arrow-body-style': ['error', 'as-needed'],
     'react-native/no-inline-styles': 0,
+    'react-hooks/exhaustive-deps': 0,
   },
 }

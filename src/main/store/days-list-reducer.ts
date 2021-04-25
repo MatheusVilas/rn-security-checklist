@@ -48,7 +48,18 @@ export default function reducer<InitialStateType>(
 ): ReducerType {
   switch (action.type) {
     case Types.ADD:
-      return { ...state, list: [...state.list, action.payload] }
+      return {
+        ...state,
+        list: [
+          {
+            id: moment().toString(),
+            day: moment().toDate(),
+            savedAt: moment().toDate(),
+            status: true,
+          },
+          ...state.list,
+        ],
+      }
 
     default:
       return state
